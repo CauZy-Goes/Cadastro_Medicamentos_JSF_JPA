@@ -6,6 +6,7 @@
 
     <groupId>io.github.cauzy</groupId>
     <artifactId>Cadastro_Medicamentos_JSF_JPA</artifactId>
+    <packaging>war</packaging>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
@@ -43,7 +44,6 @@
             <groupId>jakarta.enterprise</groupId>
             <artifactId>jakarta.enterprise.cdi-api</artifactId>
             <version>4.0.1</version>
-            <scope>provided</scope>
         </dependency>
 
         <!-- Hibernate Core -->
@@ -88,4 +88,7 @@
 
     </dependencies>
 
+    <build>
+        <finalName>Cadastro_Medicamentos_JSF_JPA</finalName>
+    </build>
 </project>
