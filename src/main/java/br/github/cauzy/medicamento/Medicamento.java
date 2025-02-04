@@ -1,5 +1,6 @@
 package br.github.cauzy.medicamento;
 
+import jakarta.enterprise.context.Dependent;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
@@ -7,7 +8,8 @@ import java.math.BigDecimal;
 import java.util.Objects;
 
 @Entity
-@Table(name="medicamento")
+@Table(name="medicamento" , schema = "public")
+@Dependent
 public class Medicamento implements Serializable, Base {
 
     @Id

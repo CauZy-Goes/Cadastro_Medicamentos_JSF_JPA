@@ -3,11 +3,13 @@ package br.github.cauzy.medicamento.service;
 import br.github.cauzy.medicamento.Medicamento;
 import br.github.cauzy.medicamento.dao.DAO;
 import br.github.cauzy.medicamento.utility.NegocioException;
+import jakarta.enterprise.context.Dependent;
 import jakarta.inject.Inject;
 
 import java.io.Serializable;
 import java.util.List;
 
+@Dependent
 public class MedicamentoService implements Serializable {
 
     @Inject
@@ -15,7 +17,7 @@ public class MedicamentoService implements Serializable {
 
     public void salvar(Medicamento m) throws NegocioException {
         if (m.getNome().length() < 3){
-            throw new NegocioException("O nome do medicamento não pode ter menos que 3 caracteres");
+            throw new NegocioException("O nome do Medicamento não pode ter menos que 3 caracteres");
         }
 
         dao.salvar(m);
@@ -26,6 +28,6 @@ public class MedicamentoService implements Serializable {
     }
 
     public List<Medicamento> todosOsMedicamentos() {
-        return dao.buscarTodos("select m from Medicamento m.nome");
+        return dao.buscarTodos("select m from Medicamento m");
     }
 }

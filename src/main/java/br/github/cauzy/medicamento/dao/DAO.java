@@ -1,52 +1,57 @@
 package br.github.cauzy.medicamento.dao;
 
 import br.github.cauzy.medicamento.Base;
+import jakarta.enterprise.context.Dependent;
+import jakarta.inject.Inject;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.Query;
 
 import java.io.Serializable;
 import java.util.List;
 
-public class DAO <T extends Base> implements Serializable {
+@Dependent
+public class DAO<T extends Base> implements Serializable {
 
-    private static EntityManager manager = ConnectionFactory.getEntityManager();
+    @Inject
+    private EntityManager manager; // Agora o CDI gerencia o EntityManager
 
     public T buscarPorID(Class<T> clazz, Long id) {
         return manager.find(clazz, id);
     }
 
     public void salvar(T t) {
-        try{
+        try {
             manager.getTransaction().begin();
 
-            if(t.getId() == null){
-                manager.persist(t); //save new
+            if (t.getId() == null) {
+                manager.persist(t); // save new
             } else {
-                manager.merge(t); //update
+                manager.merge(t); // update
             }
 
             manager.getTransaction().commit();
-        }catch (Exception e){
+        } catch (Exception e) {
             manager.getTransaction().rollback();
+            e.printStackTrace();
         }
     }
 
-    public void remover(Long id, Class<T> clazz){
+    public void remover(Long id, Class<T> clazz) {
         T t = buscarPorID(clazz, id);
 
-        try{
+        try {
             manager.getTransaction().begin();
             manager.remove(t);
             manager.getTransaction().commit();
-        }catch (Exception e){
+        } catch (Exception e) {
             manager.getTransaction().rollback();
+            e.printStackTrace();
         }
     }
 
     @SuppressWarnings("unchecked")
-    public List<T> buscarTodos(String jpql){
+    public List<T> buscarTodos(String jpql) {
         Query query = manager.createQuery(jpql);
         return query.getResultList();
     }
-
 }

@@ -1,18 +1,24 @@
 <persistence xmlns="https://jakarta.ee/xml/ns/persistence"
              version="3.1">
     <persistence-unit name="meuPU" transaction-type="RESOURCE_LOCAL">
+        <class>br.github.cauzy.medicamento.Medicamento</class>
         <properties>
-            <!-- Configuração do PostgreSQL -->
             <property name="jakarta.persistence.jdbc.driver" value="org.postgresql.Driver"/>
             <property name="jakarta.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/postgres"/>
             <property name="jakarta.persistence.jdbc.user" value="postgres"/>
             <property name="jakarta.persistence.jdbc.password" value="123123"/>
 
-            <!-- Configuração do Hibernate -->
-            <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>
-            <property name="hibernate.hbm2ddl.auto" value="update"/>
-            <property name="hibernate.show_sql" value="true"/>
-            <property name="hibernate.format_sql" value="true"/>
+            <!-- Gera o banco automaticamente -->
+            <property name="jakarta.persistence.schema-generation.database.action" value="create"/>
+            <property name="jakarta.persistence.schema-generation.create-source" value="metadata"/>
+
+            <!-- Define onde salvar o script SQL -->
+            <property name="jakarta.persistence.schema-generation.scripts.action" value="create"/>
+            <property name="jakarta.persistence.schema-generation.scripts.create-target" value="schema.sql"/>
+
+            <!-- Nível de log -->
+            <property name="jakarta.persistence.logging.level" value="FINE"/>
         </properties>
+
     </persistence-unit>
 </persistence>
