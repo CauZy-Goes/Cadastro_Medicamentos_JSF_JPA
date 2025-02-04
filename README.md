@@ -5,7 +5,8 @@ Este projeto é um sistema de **cadastro de medicamentos**, a aplicação permit
 🎨 Imagem do Site
 Aqui está uma imagem que representa a interface do sistema:
 
-![Tela Crud Medicamentos](Tela Crud Medicamentos.png)
+![Tela Crud Medicamentos](https://github.com/CauZy-Goes/Cadastro_Medicamentos_JSF_JPA/blob/main/Tela%20Crud%20Medicamentos.png)
+
 
 
 ## 📑 Funcionalidades
