@@ -8,16 +8,18 @@
     <ui:define name="corpo">
 
         <h:form id="frm">
-            <p:messages autoUpdate="true" id="message"/>
+            <p:messages autoUpdate="true" id="message" />
 
-            <p:panelGrid columns="2">
-                <p:outputLabel value="Medicamento"/>
-                <p:inputText size="30" value="#{medicamentoMB.medicamento.nome}" required="true" label="Medicamento"/>
+            <p:panelGrid columns="6" layout="grid"
+            style="margin-top: 15px; margin-bottom: 15px; width: 100%; display: flex; justify-content: space-around;  flex-wrap: wrap; align-items: center;" >
 
-                <p:outputLabel value="Aprensentação"/>
+                <p:outputLabel value="Medicamento" styleClass="label" style="font-size: 20px; font-weight: bold; margin-left: 20px"/>
+                <p:inputText size="30" value="#{medicamentoMB.medicamento.nome}" required="true" label="Medicamento" style=""/>
+
+                <p:outputLabel value="Aprensentação" style="font-size: 20px; font-weight: bold ;  margin-left: 20px"/>
                 <p:inputText size="30" value="#{medicamentoMB.medicamento.apresentacao}" required="true" label="Aprensentação"/>
 
-                <p:outputLabel value="Laboratório"/>
+                <p:outputLabel value="Laboratório" style="font-size: 20px; font-weight: bold; margin-left: 20px"/>
                 <p:selectOneMenu value="#{medicamentoMB.medicamento.laboratorio}" required="true" label="Laboratório">
                     <f:selectItem itemLabel="Select o laboratório" noSelectionOption="true"/>
                     <f:selectItem itemLabel="Bayer" itemValue="BAYER"/>
@@ -32,10 +34,10 @@
                     <f:selectItem itemLabel="Biossintetica" itemValue="BIOSSINTETICA"/>
                 </p:selectOneMenu>
 
-                <p:outputLabel value="Registro MS"/>
+                <p:outputLabel value="Registro MS" style="font-size: 20px; font-weight: bold; margin-left: 20px"/>
                 <p:inputMask  mask="9.9999.9999.999-9" size="13" value="#{medicamentoMB.medicamento.registro}" required="true" label="Registro MS"/>
 
-                <p:outputLabel value="Preço"/>
+                <p:outputLabel value="Preço" style="font-size: 20px; font-weight: bold; margin-left: 20px"/>
                 <p:inputText size="4" value="#{medicamentoMB.medicamento.preco}" required="true" label="Preço">
                     <f:convertNumber minFractionDigits="2" locale="pt_BR" minIntegerDigits="0"/>
                 </p:inputText>
@@ -69,12 +71,12 @@
                     </p:outputLabel>
                 </p:column>
 
-                <p:column width="100">
-                    <p:commandButton icon="pi pi-pencil" update="@form" process="@this" >
+                <p:column width="200">
+                    <p:commandButton icon="pi pi-pencil" update="@form" process="@this" style="margin-right: 30px; margin-left: 30px" >
                         <f:setPropertyActionListener value="#{m}" target="#{medicamentoMB.medicamento}"/>
                     </p:commandButton>
 
-                    <p:commandButton action="#{medicamentoMB.excluir()}" icon="pi pi-trash" update="tabela" process="@this" >
+                    <p:commandButton action="#{medicamentoMB.excluir()}" icon="pi pi-trash" update="tabela" process="@this" style="background-color: red" >
                         <f:setPropertyActionListener value="#{m}" target="#{medicamentoMB.medicamento}"/>
                     </p:commandButton>
                 </p:column>
