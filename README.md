@@ -1,11 +1,11 @@
 # Cadastro de Medicamentos JSF JPA 💊
 
-Este projeto é um sistema de **cadastro de medicamentos** desenvolvido utilizando **JSF** (JavaServer Faces), **PrimeFaces**, **CDI** (Contexts and Dependency Injection), **Hibernate** e **PostgreSQL**. A aplicação permite o cadastro e gerenciamento de informações de medicamentos de forma simples e eficiente.
+Este projeto é um sistema de **cadastro de medicamentos**, a aplicação permite o cadastro e gerenciamento de informações de medicamentos de forma simples e eficiente. Desenvolvido utilizando **JSF** (JavaServer Faces), **PrimeFaces**, **CDI** (Contexts and Dependency Injection), **Hibernate** e **PostgreSQL**
 
 🎨 Imagem do Site
 Aqui está uma imagem que representa a interface do sistema:
 
-![Tela Crud Medicamentos](imagens/Tela Crud Medicamentos.png)
+![Tela Crud Medicamentos](Tela Crud Medicamentos.png)
 
 
 ## 📑 Funcionalidades
