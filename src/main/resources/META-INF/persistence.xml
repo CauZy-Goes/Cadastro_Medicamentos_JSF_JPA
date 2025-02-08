@@ -1,7 +1,9 @@
 <persistence xmlns="https://jakarta.ee/xml/ns/persistence"
              version="3.1">
     <persistence-unit name="meuPU" transaction-type="RESOURCE_LOCAL">
-        <class>br.github.cauzy.medicamento.Medicamento</class>
+        <class>br.github.cauzy.medicamento.entity.Medicamento</class>
+        <class>br.github.cauzy.medicamento.entity.Laboratorio</class>
+
         <properties>
             <property name="jakarta.persistence.jdbc.driver" value="org.postgresql.Driver"/>
             <property name="jakarta.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/postgres"/>

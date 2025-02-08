@@ -16,6 +16,9 @@ public class DAO<T extends Base> implements Serializable {
     private EntityManager manager; // Agora o CDI gerencia o EntityManager
 
     public T buscarPorID(Class<T> clazz, Long id) {
+        if (id == null) {
+            throw new IllegalArgumentException("ID não pode ser nulo");
+        }
         return manager.find(clazz, id);
     }
 

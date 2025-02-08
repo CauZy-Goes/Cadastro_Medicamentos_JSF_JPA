@@ -1,5 +1,6 @@
-package br.github.cauzy.medicamento;
+package br.github.cauzy.medicamento.entity;
 
+import br.github.cauzy.medicamento.Base;
 import jakarta.enterprise.context.Dependent;
 import jakarta.persistence.*;
 
@@ -14,14 +15,16 @@ public class Medicamento implements Serializable, Base {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="codigo")
     private Long id;
 
     private String nome;
     private String apresentacao;
-    private String laboratorio;
     private String registro;
     private BigDecimal preco;
+
+    @ManyToOne
+    @JoinColumn(name = "laboratorio_id")
+    private Laboratorio laboratorio;
 
     @Override
     public Long getId() {
@@ -48,10 +51,6 @@ public class Medicamento implements Serializable, Base {
         this.apresentacao = apresentacao;
     }
 
-    public String getLaboratorio() {
-        return laboratorio;
-    }
-
     public String getRegistro() {
         return registro;
     }
@@ -60,16 +59,20 @@ public class Medicamento implements Serializable, Base {
         this.registro = registro;
     }
 
-    public void setLaboratorio(String laboratorio) {
-        this.laboratorio = laboratorio;
-    }
-
     public BigDecimal getPreco() {
         return preco;
     }
 
     public void setPreco(BigDecimal preco) {
         this.preco = preco;
+    }
+
+    public Laboratorio getLaboratorio() {
+        return laboratorio;
+    }
+
+    public void setLaboratorio(Laboratorio laboratorio) {
+        this.laboratorio = laboratorio;
     }
 
     @Override

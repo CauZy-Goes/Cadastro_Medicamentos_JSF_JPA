@@ -36,7 +36,7 @@
         <dependency>
             <groupId>org.glassfish</groupId>
             <artifactId>jakarta.faces</artifactId>
-            <version>3.0.0</version>
+            <version>4.0.1</version>
         </dependency>
 
         <!-- CDI API (Jakarta EE 10) -->
@@ -53,19 +53,13 @@
             <version>6.3.1.Final</version>
         </dependency>
 
-        <!-- Hibernate JPA -->
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-jpamodelgen</artifactId>
-            <version>6.3.1.Final</version>
-        </dependency>
-
-        <!-- Jakarta Persistence API (JPA) -->
         <dependency>
             <groupId>jakarta.persistence</groupId>
             <artifactId>jakarta.persistence-api</artifactId>
             <version>3.1.0</version>
+            <scope>provided</scope>
         </dependency>
+
 
         <!-- Driver JDBC para PostgreSQL -->
         <dependency>
@@ -85,6 +79,22 @@
             <artifactId>antlr4-runtime</artifactId>
             <version>4.9.3</version>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.mapstruct/mapstruct -->
+        <dependency>
+            <groupId>org.mapstruct</groupId>
+            <artifactId>mapstruct</artifactId>
+            <version>1.6.3</version>
+        </dependency>
+
+
+        <!-- https://mvnrepository.com/artifact/org.mapstruct/mapstruct-processor -->
+        <dependency>
+            <groupId>org.mapstruct</groupId>
+            <artifactId>mapstruct-processor</artifactId>
+            <version>1.6.3</version>
+        </dependency>
+
 
     </dependencies>
 
