@@ -1,0 +1,18 @@
+.custom-tabview .ui-tabs-nav {
+    text-align: center;
+    gap: 15px;
+}
+
+.custom-tabview .ui-tabs-nav li {
+    padding: 5px 10px;
+}
+
+.custom-tabview .ui-tabs-nav li.ui-state-active a {
+    color: orange;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.custom-tabview .ui-tabs-nav li.ui-state-active {
+    border-bottom: 3px solid orange;
+}

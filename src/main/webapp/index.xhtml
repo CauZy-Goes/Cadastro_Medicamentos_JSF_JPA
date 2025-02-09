@@ -8,68 +8,70 @@
     <ui:define name="corpo">
 
 <!--         Tabs para separar Medicamentos e Laboratórios-->
-        <p:tabView id="tabView" dynamic="true" cache="false">
+        <p:tabView id="tabView" dynamic="true" cache="false" styleClass="custom-tabview">
 
             <!-- Aba de Medicamentos -->
             <p:tab title="Medicamentos" id="tab_med">
                 <h:form id="frm_med">
+
                     <p:messages autoUpdate="true" id="message_med" />
 
-                    <p:panelGrid columns="6" style="margin-top: 15px; width: 100%; margin-bottom: 15px;">
-
-                        <p:outputLabel value="Medicamento" styleClass="label" style="font-size: 20px; font-weight: bold;"/>
+                    <p:panelGrid columns="6" styleClass="custom-label"
+                                 columnClasses="ui-grid-col-2, ui-grid-col-2, ui-grid-col-2, ui-grid-col-2, ui-grid-col-2, ui-grid-col-2">
+                        <p:outputLabel value="Medicamento"/>
                         <p:inputText size="30" value="#{medicamentoMB.medicamentoDTO.nome}" required="true" label="Medicamento"/>
 
-                        <p:outputLabel value="Apresentação" style="font-size: 20px; font-weight: bold; "/>
+                        <p:outputLabel value="Apresentação" />
                         <p:inputText size="30" value="#{medicamentoMB.medicamentoDTO.apresentacao}" required="true" label="Apresentação"/>
 
-                        <p:outputLabel value="Laboratório" style="font-size: 20px; font-weight: bold; "/>
+                        <p:outputLabel value="Laboratório" />
                         <p:selectOneMenu value="#{medicamentoMB.medicamentoDTO.laboratorioId}" required="true" label="Laboratório" >
                             <f:selectItem itemLabel="Selecione o laboratório" noSelectionOption="true"/>
                             <f:selectItems value="#{laboratorioMB.laboratorios}" var="lab" itemLabel="#{lab.nome}" itemValue="#{lab.id}"/>
                         </p:selectOneMenu>
 
-                        <p:outputLabel value="Registro MS" style="font-size: 20px; font-weight: bold; "/>
+                        <p:outputLabel value="Registro MS" />
                         <p:inputMask mask="9.9999.9999.999-9" size="13" value="#{medicamentoMB.medicamentoDTO.registro}" required="true" label="Registro MS"/>
 
-                        <p:outputLabel value="Preço" style="font-size: 20px; font-weight: bold;"/>
+                        <p:outputLabel value="Preço" />
                         <p:inputText size="4" value="#{medicamentoMB.medicamentoDTO.preco}" required="true" label="Preço">
                             <f:convertNumber minFractionDigits="2" locale="pt_BR" minIntegerDigits="0"/>
                         </p:inputText>
 
                         <p:outputLabel/>
-                        <p:commandButton value="Cadastrar" action="#{medicamentoMB.adicionar()}" update="frm_med tabela_med message_med" style="margin-top: 10px"/>
+                        <p:commandButton value="Cadastrar" action="#{medicamentoMB.adicionar()}" update="frm_med tabela_med message_med" styleClass="custom-button"/>
                     </p:panelGrid>
 
-                    <p:dataTable value="#{medicamentoMB.medicamentos}" var="m" id="tabela_med" paginator="true" rows="5">
-                        <p:column headerText="Medicamento">
+                    <p:dataTable value="#{medicamentoMB.medicamentos}" var="m" id="tabela_med" paginator="true" paginatorPosition="bottom" rows="5" styleClass="dt">
+
+                        <p:column headerText="Medicamento" styleClass="col-medium">
                             <p:outputLabel value="#{m.nome}"/>
                         </p:column>
 
-                        <p:column headerText="Apresentação">
+                        <p:column headerText="Apresentação" styleClass="col-medium">
                             <p:outputLabel value="#{m.apresentacao}"/>
                         </p:column>
 
-                        <p:column headerText="Laboratório" >
+                        <p:column headerText="Laboratório" styleClass="col-medium">
                             <p:outputLabel value="#{medicamentoMB.getNomeLaboratorio(m.id)}"/>
                         </p:column>
 
-                        <p:column headerText="Registro MS" >
+                        <p:column headerText="Registro MS" styleClass="col-medium">
                             <p:outputLabel value="#{m.registro}"/>
                         </p:column>
 
-                        <p:column headerText="Preço" >
+                        <p:column headerText="Preço" styleClass="col-small">
                             <p:outputLabel value="#{m.preco}">
                                 <f:convertNumber type="currency" currencySymbol="R$"/>
                             </p:outputLabel>
                         </p:column>
 
-                        <p:column width="200">
-                            <p:commandButton icon="pi pi-pencil" update="@form" process="@this" style="margin-right: 30px; margin-left: 30px">
+                        <p:column styleClass="col-bt">
+                            <p:commandButton icon="pi pi-pencil" update="@form" process="@this" styleClass="bt-edit">
                                 <f:setPropertyActionListener value="#{m}" target="#{medicamentoMB.medicamentoDTO}"/>
                             </p:commandButton>
 
-                            <p:commandButton action="#{medicamentoMB.excluir()}" icon="pi pi-trash" update="@form" process="@this" style="background-color: red">
+                            <p:commandButton action="#{medicamentoMB.excluir()}" icon="pi pi-trash" update="@form" process="@this" styleClass="bt-delete">
                                 <f:setPropertyActionListener value="#{m}" target="#{medicamentoMB.medicamentoDTO}"/>
                             </p:commandButton>
                         </p:column>
@@ -83,53 +85,56 @@
                 <h:form id="frm_lab">
                     <p:messages autoUpdate="true" id="message_lab" />
 
-                    <p:panelGrid columns="6" style="margin-top: 15px; width: 100%; margin-bottom: 15px;">
-                        <p:outputLabel value="Nome do Laboratório" style="font-size: 20px; font-weight: bold;"/>
+                    <p:panelGrid columns="6" styleClass="custom-label"
+                                 columnClasses="ui-grid-col-2, ui-grid-col-2, ui-grid-col-2, ui-grid-col-2, ui-grid-col-2, ui-grid-col-2">
+
+                        <p:outputLabel value="Nome do Laboratório" />
                         <p:inputText size="30" value="#{laboratorioMB.laboratorio.nome}" required="true" label="Nome do Laboratório"/>
 
-                        <p:outputLabel value="Endereço" style="font-size: 20px; font-weight: bold;"/>
+                        <p:outputLabel value="Endereço" />
                         <p:inputText size="30" value="#{laboratorioMB.laboratorio.endereco}" required="true" label="Endereço"/>
 
-                        <p:outputLabel value="Telefone" style="font-size: 20px; font-weight: bold;"/>
+                        <p:outputLabel value="Telefone" />
                         <p:inputMask mask="(99) 99999-9999" size="30" value="#{laboratorioMB.laboratorio.telefone}" required="true" label="Telefone"/>
 
-                        <p:outputLabel value="Email" style="font-size: 20px; font-weight: bold;"/>
+                        <p:outputLabel value="Email" />
                         <p:inputText size="30" value="#{laboratorioMB.laboratorio.email}" required="true" label="Email"/>
 
-                        <p:outputLabel value="CNPJ" style="font-size: 20px; font-weight: bold;"/>
+                        <p:outputLabel value="CNPJ" />
                         <p:inputMask mask="99.999.999/9999-99" size="30" value="#{laboratorioMB.laboratorio.cnpf}" required="true" label="CNPJ"/>
 
                         <p:outputLabel/>
-                        <p:commandButton value="Cadastrar" action="#{laboratorioMB.adicionar()}" update="frm_lab tabela_Lab message_lab frm_med select_med" style="margin-top: 10px"/>
+                        <p:commandButton value="Cadastrar" action="#{laboratorioMB.adicionar()}" update="frm_lab tabela_Lab message_lab frm_med select_med" styleClass="custom-button"/>
                     </p:panelGrid>
 
-                    <p:dataTable value="#{laboratorioMB.laboratorios}" var="l" id="tabela_Lab" paginator="true" rows="5">
-                        <p:column headerText="Nome">
+                    <p:dataTable value="#{laboratorioMB.laboratorios}" var="l" id="tabela_Lab" paginator="true" paginatorPosition="bottom" rows="5" styleClass="dt">
+
+                        <p:column headerText="Nome" styleClass="col-medium">
                             <p:outputLabel value="#{l.nome}"/>
                         </p:column>
 
-                        <p:column headerText="Endereço">
+                        <p:column headerText="Endereço" styleClass="col-large">
                             <p:outputLabel value="#{l.endereco}"/>
                         </p:column>
 
-                        <p:column headerText="Telefone">
+                        <p:column headerText="Telefone" styleClass="col-medium">
                             <p:outputLabel value="#{l.telefone}"/>
                         </p:column>
 
-                        <p:column headerText="Email">
+                        <p:column headerText="Email" styleClass="col-medium">
                             <p:outputLabel value="#{l.email}"/>
                         </p:column>
 
-                        <p:column headerText="CNPJ">
+                        <p:column headerText="CNPJ" styleClass="col-medium">
                             <p:outputLabel value="#{l.cnpf}"/>
                         </p:column>
 
-                        <p:column width="200">
-                            <p:commandButton icon="pi pi-pencil" update="@form" process="@this" style="margin-right: 30px; margin-left: 30px">
+                        <p:column styleClass="col-bt">
+                            <p:commandButton icon="pi pi-pencil" update="@form" process="@this" styleClass="bt-edit">
                                 <f:setPropertyActionListener value="#{l}" target="#{laboratorioMB.laboratorio}"/>
                             </p:commandButton>
 
-                            <p:commandButton action="#{laboratorioMB.excluir()}" icon="pi pi-trash" update="@form" process="@this" style="background-color: red">
+                            <p:commandButton action="#{laboratorioMB.excluir()}" icon="pi pi-trash" update="@form" process="@this" styleClass="bt-delete">
                                 <f:setPropertyActionListener value="#{l}" target="#{laboratorioMB.laboratorio}"/>
                             </p:commandButton>
                         </p:column>

@@ -7,8 +7,161 @@
 
 <h:head>
     <title>PrimeFaces_Journey</title>
-    <h:outputStylesheet library="css" name="file.css"/>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+
+    <style>
+
+        /*   TabView  */
+        .custom-tabview .ui-tabs-nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0;
+            gap: 90px;
+        }
+
+        .custom-tabview .ui-tabs-nav li {
+            padding: 5px 10px;
+            font-size: 25px;
+        }
+
+        .custom-tabview .ui-tabs-nav li:focus {
+            border-color: orange !important;
+            box-shadow: 0 0 5px orange !important;
+        }
+
+        .custom-tabview .ui-tabs-nav li:hover {
+            color: #FFECB3 !important;
+            border-bottom: #FFECB3 5px solid;
+            cursor: pointer;
+        }
+
+        .custom-tabview .ui-tabs-nav li.ui-state-active a {
+            color: orange !important;
+            font-weight: bold;
+        }
+
+        .custom-tabview .ui-tabs-nav li.ui-state-active {
+            border-bottom: 5px solid orange !important;
+        }
+
+        /* Botão Do Formulário */
+        .custom-button {
+            height: 60px;
+            width: 220px;
+            background-color: orange !important;
+            color: white !important;
+            font-weight: bold !important;
+            font-size: 25px !important;
+            border: none !important;
+            border-radius: 5px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .custom-button:hover {
+            background-color: green !important;
+            color: white !important;
+        }
+
+        /* Data Table */
+
+        .dt {
+            background-color: #fff4d5;
+            padding: 0;
+        }
+
+        .ui-datatable th {
+            font-size: 21px;
+            background-color: #fff3db !important;
+            font-weight: bold;
+        }
+
+        .ui-datatable thead {
+            background-color: #fff1e0 !important;
+        }
+
+        .col-bt {
+            width: 70px;
+            padding: 0;
+        }
+
+        .bt-edit{
+            background-color: orange !important;
+            margin-right: 20px !important;
+        }
+
+        .bt-delete{
+            background-color: red !important;
+        }
+
+        .bt-edit:hover{
+            background-color: green !important;
+            color: white !important;
+        }
+
+        .bt-delete:hover{
+            background-color: white !important;
+            color: red !important;
+        }
+
+        .col-small {
+            width: 100px;
+        }
+
+        .col-medium {
+            width: 200px;
+        }
+
+        .col-large {
+            width: 300px;
+        }
+
+
+        /* Panel Grid */
+        .custom-label  {
+            margin-top: 15px;
+            width: 100%;
+            margin-bottom: 15px;
+        }
+
+        .custom-label .ui-outputlabel {
+            font-size: 24px; !important;
+            font-weight: bold;
+        }
+
+        .custom-label input:focus {
+            border-color: orange !important;
+            box-shadow: 0 0 5px orange !important;
+        }
+
+        .custom-label input:hover {
+            border-color: orange !important;
+            box-shadow: 0 0 5px orange !important;
+        }
+
+        .custom-label .ui-selectonemenu:focus,
+        .custom-label .ui-selectonemenu:hover,
+        .custom-label .ui-selectonemenu.ui-selectonemenu-open {
+            border-color: orange !important;
+            box-shadow: 0 0 5px orange !important;
+        }
+
+        .custom-label .ui-selectonemenu.ui-selectonemenu-open {
+            border-color: orange !important;
+            box-shadow: 0 0 5px orange !important;
+            background-color: #FFECB3 !important;
+        }
+
+        .custom-label .ui-selectonemenu.ui-selectonemenu-open .ui-selectonemenu-panel {
+            background-color: #FFECB3 !important;
+            border-color: orange !important;
+            box-shadow: 0 0 5px orange !important;
+        }
+
+        .custom-label .ui-selectonemenu {
+            transition: border-color 0.3s ease;
+        }
+    </style>
 </h:head>
 
 <h:body style="padding: 0; margin: 0;">
